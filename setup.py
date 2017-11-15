@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages  # Always prefer setuptools over distutils
 from codecs import open  # To use a consistent encoding
 import os
+from dyst import VERSION
 
 
 
@@ -11,7 +12,7 @@ setup(
 	# Versions should comply with PEP440.  For a discussion on single-sourcing
 	# the version across setup.py and the project code, see
 	# https://packaging.python.org/en/latest/single_source_version.html
-	version='0.0.1',
+	version=VERSION,
 
 	description='Dyst Dynamic histograms in the terminal',
 	long_description=long_description,
@@ -44,8 +45,7 @@ setup(
 		# Specify the Python versions you support here. In particular, ensure
 		# that you indicate whether you support Python 2, Python 3 or both.
 		'Programming Language :: Python :: 2',
-		'Programming Language :: Python :: 2.6',
-		'Programming Language :: Python :: 2.7',
+                "Programming Language :: Python :: 3"
 	],
 
 	# What does your project relate to?
