@@ -10,7 +10,7 @@ pip install dyst
 ## Usage
 
 ```
-cuf -f 3 file.tsv | dyst
+cut -f 3 file.tsv | dyst
 ```
 
 ![Alt text](/img/cast3.gif "screencast")
