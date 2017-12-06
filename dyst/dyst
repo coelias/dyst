@@ -242,7 +242,7 @@ class histogram:
                                             len(self.bins[i])) + bar + '\r\n'
             start += self.bs
 
-        return res
+        return res.encode('utf-8')
 
     def printer(self):
         global PRINTED
@@ -328,7 +328,7 @@ class wordHist:
             res += ("{:" + len_n + "s} [{:" + len_counts + "}]: ").format(
                 wd, cnt) + bar + '\r\n'
 
-        return res
+        return res.encode('utf-8')
 
     def restruct1(self):
         pass
@@ -405,6 +405,9 @@ if __name__ == '__main__':
         sys.stderr.write(
             "# [q]uit | +/- bins [a,s] | precentages [p] | +/- width [i,o]\r\n# +/- minimum [z,x] | reset [v] | +/- maximum [n,m]\r\n\r\n"
         )
+    else:
+        if stat.S_ISFIFO(mode) or stat.S_ISREG(mode):
+            KEYBOARD = os.open('/dev/tty', os.O_RDONLY)
 
     try:
         if args.words:
