@@ -295,8 +295,8 @@ class wordHist:
         global PRINTED
         s = self.stringify(False)
         if PRINTED:
-            cleanLine(PRINTED + 1)
-            goUp(PRINTED + 1)
+            cleanLine(PRINTED )
+            goUp(PRINTED )
         PRINTED = s.count('\r\n')
         sys.stderr.write(s)
         sys.stderr.flush()
