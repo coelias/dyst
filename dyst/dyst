@@ -403,7 +403,7 @@ if __name__ == '__main__':
         tty.setraw(KEYBOARD)
         atexit.register(restoretty)
         sys.stderr.write(
-            "# [q]uit | +/- bins [a,s] | precentages [p] | +/- width [i,o]\r\n# +/- minimum [z,x] | reset [v] | +/- maximum [n,m]\r\n\r\n"
+            "# [q]uit | +/- bins [a,s] | percentages [p] | +/- width [i,o]\r\n# +/- minimum [z,x] | reset [v] | +/- maximum [n,m]\r\n\r\n"
         )
     else:
         if stat.S_ISFIFO(mode) or stat.S_ISREG(mode):
