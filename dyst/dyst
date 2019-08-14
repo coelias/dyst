@@ -14,8 +14,14 @@ import time
 import tty
 import atexit
 
+unicodes = [
+    "▏", "▎", "▍", "▌", "▋", "▊", "▉" 
+]
+
 if sys.version_info[0] > 2:
     raw_input = input
+else:
+    unicodes=[i.decode('utf-8') for i in unicodes]
 
 
 def restoretty():
@@ -24,10 +30,6 @@ def restoretty():
 
 ch = os.fstat(1).st_mode & stat.S_IFCHR
 reg = os.fstat(1).st_mode & stat.S_IFREG
-
-unicodes = [
-    u'\u258F', u'\u258E', u'\u258D', u'\u258C', u'\u258B', u'\u258A', u'\u2589'
-]
 
 PRINTED = 0
 
@@ -242,7 +244,7 @@ class histogram:
                                             len(self.bins[i])) + bar + '\r\n'
             start += self.bs
 
-        return res.encode('utf-8')
+        return res
 
     def printer(self):
         global PRINTED
@@ -317,7 +319,7 @@ class wordHist:
         if not longestbar: return ""
         factor = float(len_bar) / longestbar
 
-        for wd, cnt in self.words.iteritems():
+        for wd, cnt in self.words.items():
             bar = CHAR * int(factor * cnt)
             if not writable:
                 extra = factor * cnt
@@ -328,7 +330,7 @@ class wordHist:
             res += ("{:" + len_n + "s} [{:" + len_counts + "}]: ").format(
                 wd, cnt) + bar + '\r\n'
 
-        return res.encode('utf-8')
+        return res
 
     def restruct1(self):
         pass
